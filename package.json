@@ -1,0 +1,36 @@
+{
+  "name": "keystone6-openid-auth",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A Keystone 6 authentication mechanism to use OpenID Connect to authenticate and synchronize users in Keystone",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsdown",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.rochelug.org/napkid/keystone6-openid-auth.git"
+  },
+  "keywords": [
+    "keystone",
+    "openid",
+    "oauth2",
+    "authentication"
+  ],
+  "author": "Clément Dandrieux",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "tsdown": "^0.16.0",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "@keystone-6/core": "^6.5.1",
+    "express": "^4.19.2"
+  },
+  "dependencies": {
+    "iron-session": "^8.0.4",
+    "openid-client": "^6.8.1"
+  }
+}
