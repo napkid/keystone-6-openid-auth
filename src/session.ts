@@ -8,10 +8,10 @@ export type AuthSession<UserType extends BaseListTypeInfo, SessionData> = {
     data: SessionData
 }
   
-export function createAuthSessionStrategy<UserType extends BaseListTypeInfo, SessionData, Session extends AuthSession<UserType, SessionData>>(options: KeystoneOpenIdOptions<UserType, SessionData>){
+export function createAuthSessionStrategy<UserType extends BaseListTypeInfo, SessionData>(options: KeystoneOpenIdOptions<UserType, SessionData>){
     // this strategy wraps the existing session strategy,
     //   and injects the requested session.user before returning
-    return function(_sessionStrategy: SessionStrategy<Session>) : SessionStrategy<Session> {
+    return function(_sessionStrategy: SessionStrategy<AuthSession<UserType, SessionData>>) : SessionStrategy<AuthSession<UserType, SessionData>> {
         const { get, ...sessionStrategy } = _sessionStrategy
         return {
             ...sessionStrategy,

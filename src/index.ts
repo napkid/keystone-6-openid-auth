@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import type { ErrorRequestHandler, Express, NextFunction, Request, Response } from 'express'
+import type { ErrorRequestHandler, Express, Request, Response } from 'express'
 import type { BaseItem, BaseKeystoneTypeInfo, BaseListTypeInfo, KeystoneConfig, KeystoneContext, MaybePromise } from '@keystone-6/core/types'
 
 import * as client from 'openid-client'
@@ -50,12 +50,12 @@ const defaultConfiguration : Partial<KeystoneOpenIdOptions<any, any>> = {
   }
 }
 
-export function createOpenIdAuth<kTypeInfo extends BaseKeystoneTypeInfo, TypeInfo extends BaseListTypeInfo, SessionData = any>(options: KeystoneOpenIdOptions<TypeInfo, SessionData>) : (config: KeystoneConfig) => KeystoneConfig {
+export function createOpenIdAuth<TypeInfo extends BaseListTypeInfo, SessionData = any>(options: KeystoneOpenIdOptions<TypeInfo, SessionData>) : (config: KeystoneConfig) => KeystoneConfig {
   const opts : KeystoneOpenIdOptions<TypeInfo, SessionData> = {
     ...defaultConfiguration,
     ...options
   }
-  const withSessionStrategy = createAuthSessionStrategy<TypeInfo, SessionData, kTypeInfo["session"]>(options)
+  const withSessionStrategy = createAuthSessionStrategy<TypeInfo, SessionData>(options)
   return config => {
     
     if(!config.session){
