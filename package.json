@@ -1,9 +1,24 @@
 {
   "name": "keystone6-openid-auth",
   "version": "0.1.0",
-  "type": "module",
   "description": "A Keystone 6 authentication mechanism to use OpenID Connect to authenticate and synchronize users in Keystone",
-  "main": "index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "import": {
+        "types": "./dist/index.d.mjs",
+        "default": "./dist/index.mts"
+      }
+    }
+  },
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "build": "tsdown",
     "test": "echo \"Error: no test specified\" && exit 1"
