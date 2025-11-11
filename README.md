@@ -12,7 +12,7 @@ When your users navigates to the configured `startUrl`, it triggers an OpenID Au
 
 This package is not intended to secure the API endpoints, and doesn't implement (for now) any token verification flow.
 
-It does not provide any UI to do so, you'll have to implement it in Keystone (e.g [[Custom Admin UI Pages](https://keystonejs.com/docs/guides/custom-admin-ui-pages)).
+It does not provide any UI to do so, you'll have to implement it in Keystone (e.g [Custom Admin UI Pages](https://keystonejs.com/docs/guides/custom-admin-ui-pages)).
 
 ## Usage
 
@@ -33,7 +33,7 @@ const sessionStrategy = statelessSessions({
   secret: process.env.SESSION_SECRET!,
 })
 
-// Configre the module and retrieve the withAuth function
+// Configure the module and retrieve the withAuth function
 const withAuth = createOpenIdAuth<Lists.User.TypeInfo>({
   // ...Your config here
 })
